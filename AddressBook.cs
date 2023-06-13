@@ -28,9 +28,12 @@ namespace AddressBook
             Console.WriteLine("Contact added..");
         }
 
-        internal void Display()
+        public void Display()
         {
-            throw new NotImplementedException();
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine(contact.ToString());
+            }
         }
     }
 }
