@@ -10,12 +10,12 @@ namespace AddressBook
 {
     public class Contact
     {
-        string name;
-        string email;
-        string phone;
-        string state;
-        string city;
-        string zipcode;
+        public string name;
+        public string email;
+        public string phone;
+        public string state;
+        public string city;
+        public string zipcode;
         
         public Contact(string name ,string email,string phone,string state, string city,string zipcode){
             this.name = name;   
@@ -30,7 +30,4 @@ namespace AddressBook
             return $"Name: {name}\nEmail: {email}\nPhone: {phone}\nState: {state}\nCity: {city}\nZip: {zipcode}";
         }
     }
-
-    
-
 }

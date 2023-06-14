@@ -35,5 +35,20 @@ namespace AddressBook
                 Console.WriteLine(contact.ToString());
             }
         }
+
+        public void delete()
+        {
+            Console.WriteLine("Enter name of the contact: ");
+            string input = Console.ReadLine();
+            for(int i=0;i<contactList.Count;i++)
+            {
+                Contact contact = contactList[i];
+                if(input==contact.name)
+                {
+                    contactList.Remove(contact);
+                }
+            }
+            Console.WriteLine("Contact deleted ....");
+        }
     }
 }
