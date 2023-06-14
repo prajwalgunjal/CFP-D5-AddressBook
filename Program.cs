@@ -12,6 +12,7 @@
                 Console.WriteLine("1) Add contact");
                 Console.WriteLine("2) Display Contact");
                 Console.WriteLine("3) Delete Contact");
+                Console.WriteLine("4) Edit Contact");
                 Console.WriteLine("9) Exit");
 
                 int choice = int.Parse( Console.ReadLine() );
@@ -30,6 +31,11 @@
                     case 3:
                         {
                             addressBook.delete();
+                            break;
+                        }
+                    case 4:
+                        {
+                            addressBook.Edit();
                             break;
                         }
                     case 9:

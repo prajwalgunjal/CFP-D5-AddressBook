@@ -50,5 +50,37 @@ namespace AddressBook
             }
             Console.WriteLine("Contact deleted ....");
         }
+
+        public void Edit()
+        {
+            Console.WriteLine("Enter name of the contact: ");
+            string input = Console.ReadLine();
+            for (int i = 0; i < contactList.Count; i++)
+            {
+                Contact contact = contactList[i];
+                if (input == contact.name)
+                {
+                    Console.WriteLine("Enter name");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Enter email");
+                    string email = Console.ReadLine();
+                    Console.WriteLine("Enter phone");
+                    string phone = Console.ReadLine();
+                    Console.WriteLine("Enter state");
+                    string state = Console.ReadLine();
+                    Console.WriteLine("Enter city");
+                    string city = Console.ReadLine();
+                    Console.WriteLine("Enter zip");
+                    string zip = Console.ReadLine();
+                    contact.name = name;
+                    contact.email = email;
+                    contact.phone = phone;
+                    contact.state = state;
+                    contact.city = city;
+                    contact.zipcode = zip;
+                    Console.WriteLine("Contact Updated..");
+                }
+            }
+        }
     }
 }
