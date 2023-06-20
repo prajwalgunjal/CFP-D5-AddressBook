@@ -24,15 +24,31 @@ namespace AddressBook
             Console.WriteLine("Enter zip");
             string zip = Console.ReadLine();
             Contact contact = new Contact(name,email,phone,state,city,zip);
-            contactList.Add(contact);
-            Console.WriteLine("Contact added..");
+            bool isDuplicate = false;
+            foreach (Contact existingContact in contactList)
+            {
+                if (existingContact.Phone == phone)
+                {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate)
+            {
+                contactList.Add(contact);
+                Console.WriteLine("Contact added..");
+            }
+            else
+            {
+                Console.WriteLine("Duplicate Phone Number....");
+            }
         }
 
         public void Display()
         {
             foreach (Contact contact in contactList)
             {
-                Console.WriteLine(contact.ToString());
+                Console.WriteLine(contact);
             }
         }
 
@@ -43,12 +59,14 @@ namespace AddressBook
             for(int i=0;i<contactList.Count;i++)
             {
                 Contact contact = contactList[i];
-                if(input==contact.name)
+                if(input==contact.Name)
                 {
                     contactList.Remove(contact);
+                    Console.WriteLine("Contact deleted ....");
+                    return;
                 }
             }
-            Console.WriteLine("Contact deleted ....");
+            Console.WriteLine($"{input} not found in addressBook");
         }
 
         public void Edit()
@@ -58,7 +76,7 @@ namespace AddressBook
             for (int i = 0; i < contactList.Count; i++)
             {
                 Contact contact = contactList[i];
-                if (input == contact.name)
+                if (input == contact.Name)
                 {
                     Console.WriteLine("Enter name");
                     string name = Console.ReadLine();
@@ -72,13 +90,14 @@ namespace AddressBook
                     string city = Console.ReadLine();
                     Console.WriteLine("Enter zip");
                     string zip = Console.ReadLine();
-                    contact.name = name;
-                    contact.email = email;
-                    contact.phone = phone;
-                    contact.state = state;
-                    contact.city = city;
-                    contact.zipcode = zip;
+                    contact.Name = name;
+                    contact.Email = email;
+                    contact.Phone = phone;
+                    contact.State = state;
+                    contact.City = city;
+                    contact.Zipcode = zip;
                     Console.WriteLine("Contact Updated..");
+                    return;
                 }
             }
         }
