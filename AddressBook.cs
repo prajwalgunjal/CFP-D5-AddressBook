@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    internal class AddressBook
+    public class AddressBook
     {
+        public static bool flag;
         List<Contact> contactList = new List<Contact>();
         public void addContact()
         {
+            flag = true;
             Console.WriteLine("Enter name");
             string name = Console.ReadLine();
             Console.WriteLine("Enter email");
@@ -35,8 +37,16 @@ namespace AddressBook
             }
             if (!isDuplicate)
             {
-                contactList.Add(contact);
-                Console.WriteLine("Contact added..");
+                if (flag)
+                {
+                    contactList.Add(contact);
+                    Console.WriteLine("Contact added..");
+                }
+                else
+                {
+
+                    Console.WriteLine("Contact not added..");
+                }
             }
             else
             {
